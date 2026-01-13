@@ -2,23 +2,27 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
+        /* Garante que o container ocupe 100% da altura da janela do widget */
+        html, body {
             margin: 0;
             padding: 0;
-            background-color: transparent; /* Importante para o Launcher */
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        
-        /* Container principal */
-        .slider-container {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-            background: #111;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Remove barras de rolagem */
+            background-color: transparent; /* Mantém a transparência para o Launcher */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* As Imagens (Slides) */
+        .slider-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* Cor de fundo de segurança caso a transparência falhe */
+            background: rgba(0,0,0,0.2); 
+        }
+
         .slide {
             position: absolute;
             top: 0;
@@ -29,9 +33,15 @@
             transition: opacity 1s ease-in-out;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            
+            /* FLEXBOX: Garante que o texto fique embaixo */
             display: flex;
-            align-items: flex-end; /* Texto embaixo */
+            align-items: flex-end; 
             justify-content: flex-start;
+
+            /* COR DE FUNDO DE RESERVA: Se a imagem falhar, aparece cinza escuro */
+            background-color: #222; 
         }
 
         .slide.active {
@@ -39,21 +49,21 @@
             z-index: 1;
         }
 
-        /* Título em cima da imagem */
         .caption {
-            background: rgba(0, 0, 0, 0.7);
+            /* Gradiente para garantir leitura do texto independente da imagem */
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
             color: #fff;
-            padding: 15px 20px 40px 20px; /* Padding extra em baixo para os quadradinhos */
+            padding: 40px 20px 50px 20px; /* Espaço extra embaixo para os dots */
             width: 100%;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
-            text-shadow: 2px 2px 4px #000;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            box-sizing: border-box; /* Garante que o padding não estoure a largura */
         }
 
-        /* Os "Quadradinhos" (Abas de controle) */
         .controls {
             position: absolute;
-            bottom: 10px;
+            bottom: 15px;
             right: 20px;
             z-index: 10;
             display: flex;
@@ -63,38 +73,40 @@
         .dot {
             width: 12px;
             height: 12px;
-            background-color: rgba(255, 255, 255, 0.4);
-            border: 1px solid #000;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0,0,0,0.5);
+            border-radius: 50%; /* Bolinhas redondas ficam mais modernas */
             cursor: pointer;
-            transition: background 0.3s;
-            box-shadow: 1px 1px 3px #000;
+            transition: all 0.3s;
         }
 
         .dot:hover {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.1);
         }
 
         .dot.active {
-            background-color: #ffcc00; /* Cor de destaque (ouro/ragnarok) */
+            background-color: #FFD700; /* Ouro */
             border-color: #fff;
+            transform: scale(1.2);
+            box-shadow: 0 0 5px #FFD700;
         }
-
     </style>
 </head>
 <body>
 
     <div class="slider-container">
         
-        <div class="slide active" style="background-image: url('slide1.png');">
+        <div class="slide active" style="background-image: url('slide1.png'); background-color: #3a1c1c;">
             <div class="caption">Semana de XP Duplo!</div>
         </div>
 
-        <div class="slide" style="background-image: url('slide3.png');">
-            <div class="caption">Pré alpha em breve</div>
+        <div class="slide" style="background-image: url('slide2.png'); background-color: #1c2e3a;">
+            <div class="caption">Arena PvP Liberada</div>
         </div>
 
-        <div class="slide" style="background-image: url('slide2.png');">
-            <div class="caption">Arena PvP Liberada</div>
+        <div class="slide" style="background-image: url('slide3.png'); background-color: #2d3a1c;">
+            <div class="caption">Pré-alpha em breve</div>
         </div>
 
         <div class="controls">
@@ -112,16 +124,13 @@
         let slideInterval;
 
         function showSlide(index) {
-            // Remove classe active de todos
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
 
-            // Ajusta o index
             if (index >= totalSlides) currentSlide = 0;
             else if (index < 0) currentSlide = totalSlides - 1;
             else currentSlide = index;
 
-            // Adiciona classe active no atual
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.add('active');
         }
@@ -132,16 +141,18 @@
 
         function goToSlide(index) {
             showSlide(index);
-            resetTimer(); // Reinicia a contagem de 5s ao clicar manualmente
+            resetTimer(); 
         }
 
         function resetTimer() {
             clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000); // 5000ms = 5 segundos
+            slideInterval = setInterval(nextSlide, 5000);
         }
 
-        // Inicia o timer
-        resetTimer();
+        // Garante que o JS rode apenas após o carregamento
+        document.addEventListener("DOMContentLoaded", () => {
+            resetTimer();
+        });
     </script>
 </body>
 </html>
