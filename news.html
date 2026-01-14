@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <title>Launcher Slider</title>
     <style>
         body {
             margin: 0;
@@ -9,7 +10,9 @@
             background-color: transparent; /* Importante para o Launcher */
             overflow: hidden;
             font-family: Arial, sans-serif;
-        } /* <--- ADICIONE ESTA CHAVE AQUI */
+        } /* <--- A CORREÇÃO FOI FEITA AQUI */
+
+        /* Container principal */
         .slider-container {
             width: 100vw;
             height: 100vh;
@@ -74,10 +77,9 @@
         }
 
         .dot.active {
-            background-color: #ffcc00; /* Cor de destaque (ouro/ragnarok) */
+            background-color: #ffcc00; /* Cor de destaque */
             border-color: #fff;
         }
-
     </style>
 </head>
 <body>
