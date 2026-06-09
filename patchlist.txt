@@ -1,3 +1,1 @@
-1.0.1 | https://meloweberton.github.io/update_soulgarths/updategame0102026.zip
-1.0.2 | https://meloweberton.github.io/update_soulgarths/game_update09012026.zip
-
+1.0.0 | 
