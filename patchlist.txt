@@ -3,3 +3,4 @@
 1.0.3 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug3.zip
 1.0.4 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug4.zip
 1.0.5 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug3.zip
+1.0.6 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug5.zip
