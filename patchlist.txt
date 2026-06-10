@@ -1,1 +1,1 @@
-0.0.0 | teste.com.br
+1.0.1 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug.zip
