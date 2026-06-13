@@ -1,11 +1,2 @@
-1.0.1 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug.zip
-1.0.2 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug2.zip
-1.0.3 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug3.zip
-1.0.4 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug4.zip
-1.0.5 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug3.zip
-1.0.6 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug5.zip
-1.0.7 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug7.zip
-1.0.8 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug8.zip
-1.0.9 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug9.zip
-1.1.0 | https://meloweberton.github.io/update_soulgarths/patchs/patch_fixbug10.zip
+1.0.0 | https://teste
 
