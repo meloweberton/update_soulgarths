@@ -7,10 +7,6 @@
     {
       "version": "1.0.2",
       "url_zip": "https://meloweberton.github.io/update_soulgarths/patchs/www.zip",
-      "delete": [
-        "audio/bgm/tema_antigo.ogg",
-        "img/pictures/banner_antigo.png"
-      ]
     }
   ]
 }
